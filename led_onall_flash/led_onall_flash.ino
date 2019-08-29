@@ -68,6 +68,10 @@ void setup(){
   // Debug console
   Serial.begin(9600);
 
+  pinMode(green, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(red, OUTPUT);
+  
   Blynk.begin(auth, ssid, pass);
 }
 
