@@ -35,6 +35,7 @@ int yellow = D7;
 int red = D8;
 
 //the blynk virtual pin
+//Turn ON/OFF all lights
 BLYNK_WRITE(V1) {
   int pinV1 = param.asInt();
   if(param.asInt()){
@@ -49,11 +50,23 @@ BLYNK_WRITE(V1) {
   }
 }
 
+//Turn ON/OFF flash
 BLYNK_WRITE(V2){
   int pinV2 = param.asInt();
   if(pinV2 == 1){
     on_flash();
     Blynk.syncVirtual(V2);
+  }
+}
+
+//Turn ON/OFF 1 light for Virtual Pin 3
+BLYNK_WRITE(V3){
+  int pinV3 = param.asInt();
+  if(pinV3 == 1){
+    digitalWrite(red, HIGH);
+  }
+  else{
+    digitalWrite(red, LOW);
   }
 }
 
